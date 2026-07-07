@@ -1,0 +1,17 @@
+{
+  "name": "kita-marienkaefer-website",
+  "type": "module",
+  "version": "1.0.0",
+  "description": "Statische Website des Kindergarten Marienkäfer Hamburg-Wandsbek e.V.",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@astrojs/sitemap": "^3.7.3",
+    "astro": "^7.0.6",
+    "sharp": "^0.33.5"
+  }
+}

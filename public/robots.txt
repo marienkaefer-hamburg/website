@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://www.marienkaefer-hamburg.de/sitemap-index.xml

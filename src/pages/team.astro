@@ -1,0 +1,43 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { team, kuechenfee } from '../data/site';
+---
+<BaseLayout title="Team" description="Unser pädagogisches Team begleitet die Kinder liebevoll seit vielen Jahren. Lernen Sie die Menschen hinter dem Kindergarten Marienkäfer kennen.">
+  <section class="page-head">
+    <div class="container">
+      <p class="breadcrumb"><a href="/">Start</a> · Team</p>
+      <h1>Das Pädagogen-Team</h1>
+      <p>Motivierte pädagogische Fachkräfte begleiten liebevoll seit vielen Jahren gemeinsam den Weg der Kinder.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="team-grid">
+        {team.map((p) => (
+          <div class="person">
+            <img src={p.img} alt={`${p.name} – ${p.role}`} width="300" height="300" loading="lazy" />
+            <strong>{p.name}</strong>
+            <span>{p.role}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--sand">
+    <div class="container split">
+      <div class="prose">
+        <h2>Unsere Küchenfee</h2>
+        <p>{kuechenfee.name} sorgt dafür, dass das Essen jeden Tag pünktlich auf den Tisch kommt und später das Geschirr wieder sauber im Schrank steht.</p>
+        <h2>Kooperationspartner &amp; Praktikanten</h2>
+        <p>Dank unserer Kooperationspartner können wir den Kindern noch mehr Abwechslung bieten – aktuell unterstützt uns eine Stadtteilpolizistin der Hamburger Polizei. Das ganze Jahr über unterstützen zudem Praktikanten aus den Hamburger pädagogischen Berufsschulen unser Team.</p>
+      </div>
+      <div class="person" style="max-width:280px;margin-inline:auto;">
+        <img src={kuechenfee.img} alt={`${kuechenfee.name} – ${kuechenfee.role}`} width="300" height="300" loading="lazy" />
+        <strong>{kuechenfee.name}</strong>
+        <span>{kuechenfee.role}</span>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

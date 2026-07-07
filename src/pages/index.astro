@@ -1,0 +1,86 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { site, facts } from '../data/site';
+---
+<BaseLayout title="Start">
+  <section class="hero">
+    <div class="container hero__grid">
+      <div>
+        <h1>Willkommen bei den Marienkäfern!</h1>
+        <p class="lead">
+          {site.tagline} Wir bieten maximal 55 Kindern von 14 Monaten bis sechs Jahren
+          Raum, Zeit und Materialien zum entdeckenden Lernen.
+        </p>
+        <div class="hero__cta">
+          <a class="btn" href="/kontakt/#anmeldung">Platz anfragen</a>
+          <a class="btn btn--ghost" href="/konzept/">Unser Konzept</a>
+        </div>
+      </div>
+      <img class="hero__img" src="/bilder/haus/aussen1.png" alt="Außenbereich des Kindergartens Marienkäfer" width="800" height="600" />
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="facts">
+        {facts.map((f) => (
+          <div class="fact"><strong>{f.value}</strong><span>{f.label}</span></div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--sand">
+    <div class="container split">
+      <div>
+        <h2>Das Abenteuer Leben – gemeinsam entdecken</h2>
+        <p>
+          1994 von einer Elterninitiative gegründet, betreuen wir heute in Hamburg-Marienthal
+          Kinder in familiärer Atmosphäre. Gemeinsam mit den Kindern das Abenteuer Leben zu
+          entdecken ist die Motivation unserer pädagogischen Arbeit.
+        </p>
+        <p>
+          Jedem „Marienkäfer" bieten wir den Raum, die Zeit und die Materialien zum entdeckenden
+          Lernen. Unser Konzept orientiert sich an den Bedürfnissen und Rechten der Kinder – und
+          wird seit 2013 regelmäßig vom Dachverband SOAL zertifiziert.
+        </p>
+        <a class="btn btn--ghost" href="/traeger/">Über unseren Verein</a>
+      </div>
+      <img src="/bilder/haus/konzept1.png" alt="Kinder beim Spielen im Kindergarten Marienkäfer" width="700" height="480" style="border-radius:var(--radius);box-shadow:var(--shadow-lg);" />
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <h2 class="text-center">Lernen Sie uns kennen</h2>
+      <p class="lead text-center" style="margin-inline:auto;">Ein Einblick in unser Haus, unser Team und unseren Alltag.</p>
+      <div class="cards mt-2">
+        <a class="card" href="/konzept/">
+          <img src="/bilder/haus/spielraum1.png" alt="Spielraum im Kindergarten" width="500" height="333" />
+          <div class="card__body"><h3>Unser Konzept</h3><p>Individuelle Förderung, freies Spiel und entdeckendes Lernen in einem anregungsreichen Haus.</p></div>
+        </a>
+        <a class="card" href="/team/">
+          <img src="/bilder/team/Tine.jpg" alt="Unser pädagogisches Team" width="500" height="333" />
+          <div class="card__body"><h3>Unser Team</h3><p>Erfahrene pädagogische Fachkräfte, die den Weg der Kinder liebevoll begleiten.</p></div>
+        </a>
+        <a class="card" href="/galerie/">
+          <img src="/bilder/galerie/20230607_130833.jpg" alt="Eindrücke aus dem Kindergartenalltag" width="500" height="333" />
+          <div class="card__body"><h3>Galerie</h3><p>Eindrücke aus unserem bunten Kindergartenalltag.</p></div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--brand">
+    <div class="container text-center">
+      <h2>Sie suchen einen Betreuungsplatz?</h2>
+      <p class="lead" style="color:#fff;margin-inline:auto;">
+        Wir empfehlen, frühzeitig Kontakt aufzunehmen und Ihr Kind auf unsere Warteliste
+        setzen zu lassen. Wir beteiligen uns am Hamburger Kita-Gutschein-System.
+      </p>
+      <div class="mt-2">
+        <a class="btn btn--light" href="/kontakt/#anmeldung">Jetzt Platz anfragen</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

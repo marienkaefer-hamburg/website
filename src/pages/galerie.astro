@@ -1,0 +1,39 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import fs from 'node:fs';
+import path from 'node:path';
+
+// Bilder automatisch aus public/bilder/galerie lesen.
+// Neue Fotos einfach in den Ordner legen – sie erscheinen beim nächsten Build automatisch.
+const dir = path.join(process.cwd(), 'public', 'bilder', 'galerie');
+let images: string[] = [];
+try {
+  images = fs
+    .readdirSync(dir)
+    .filter((f) => /\.(jpe?g|png|webp)$/i.test(f))
+    .sort();
+} catch {
+  images = [];
+}
+---
+<BaseLayout title="Galerie" description="Eindrücke aus dem bunten Alltag im Kindergarten Marienkäfer Hamburg-Wandsbek.">
+  <section class="page-head">
+    <div class="container">
+      <p class="breadcrumb"><a href="/">Start</a> · Galerie</p>
+      <h1>Galerie</h1>
+      <p>Eindrücke aus unserem bunten Kindergartenalltag.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="gallery">
+        {images.map((img) => (
+          <a href={`/bilder/galerie/${img}`} target="_blank" rel="noopener">
+            <img src={`/bilder/galerie/${img}`} alt="Eindruck aus dem Kindergartenalltag" loading="lazy" />
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+</BaseLayout>

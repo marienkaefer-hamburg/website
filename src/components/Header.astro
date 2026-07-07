@@ -1,0 +1,33 @@
+---
+import { nav } from '../data/site';
+const { path } = Astro.props as { path: string };
+---
+<header class="site-header">
+  <div class="container site-header__inner">
+    <a class="brand" href="/">
+      <img src="/bilder/layout/logo.png" alt="" width="52" height="33" />
+      <span>Kindergarten Marienkäfer<small>Hamburg-Wandsbek e.V.</small></span>
+    </a>
+
+    <button class="nav-toggle" aria-label="Menü öffnen" aria-expanded="false" aria-controls="hauptnavigation">
+      <span></span><span></span><span></span>
+    </button>
+
+    <nav id="hauptnavigation" class="nav" aria-label="Hauptnavigation">
+      {nav.map((item) => (
+        <a href={item.href} aria-current={path === item.href ? 'page' : undefined}>{item.label}</a>
+      ))}
+      <a class="btn nav__cta" href="/kontakt/#anmeldung">Platz anfragen</a>
+    </nav>
+  </div>
+</header>
+
+<script>
+  const toggle = document.querySelector('.nav-toggle');
+  const nav = document.getElementById('hauptnavigation');
+  toggle?.addEventListener('click', () => {
+    const open = nav?.getAttribute('data-open') === 'true';
+    nav?.setAttribute('data-open', String(!open));
+    toggle.setAttribute('aria-expanded', String(!open));
+  });
+</script>
